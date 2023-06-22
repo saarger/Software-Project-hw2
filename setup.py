@@ -1,5 +1,5 @@
 from setuptools import setup, find_packages, Extension
-module = Extension('mykmeanssp', sources=['kmeans.c'])
+module = Extension('mykmeanssp', sources=['kmeansmodule.c'])
 setup(name='mykmeanssp',
      version='1.0',
      description='Python wrapper for custom C extension',
@@ -16,7 +16,7 @@ setup(name='mykmeanssp',
 #     ext_modules=[
 #         Extension(
 #             'mykmeanssp',
-#             ['kmeans.c']
+#             ['kmeansmodule.c']
 #         )
 #     ]
 # )
