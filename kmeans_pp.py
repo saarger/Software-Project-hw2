@@ -44,10 +44,11 @@ def kmeans_pp(k,vectors):
     np.random.seed(0)
     centroids = []
     indexes = []
-    j = np.random.choice(range(len(vectors)))
+    n_array = np.arange(len(vectors))
+    j = np.random.choice(n_array)
     centroids.append( vectors[j])
     indexes.append(j)
-    vectors.pop(j)
+    
     for i in range(1,k):
         distances = []
         for vector in vectors:
@@ -56,10 +57,10 @@ def kmeans_pp(k,vectors):
         distances = np.array(distances)
         sum = np.sum(distances)
         probabilities = distances/sum
-        j = np.random.choice(range(len(vectors)), p=probabilities)
+        j = np.random.choice(n_array, p=probabilities)
         centroids.append(vectors[j])
         indexes.append(j)
-        vectors.pop(j)
+        
 
     s = ""
     for i in indexes:
@@ -92,22 +93,6 @@ if __name__ == '__main__':
 
     
     arg_parsing()
-    # centroids = kmeans_pp(3,"/Users/nadav/Desktop/software proj/HW2_nadav/tests 2/input_1_db_1.txt","/Users/nadav/Desktop/software proj/HW2_nadav/tests 2/input_1_db_2.txt")
-    # vectors = read_files("/Users/nadav/Desktop/software proj/HW2_nadav/tests 2/input_1_db_1.txt","/Users/nadav/Desktop/software proj/HW2_nadav/tests 2/input_1_db_2.txt")
-    #print (len(vectors))
-    # for vector in vectors:
-    #     #print("{", end="")
-    #     for i, element in enumerate(vector):
-            
-    #         if i != 0:
-    #             #print(", ", end="")
-    #         #print(f"{element:.4f}", end="")
-    #     #print("},")
-    # #print()
-    #             #print(centroids)
     
-    # centroids = mykmeanssp.fit(3, 200, 0.001, vectors, centroids, len(vectors), len(vectors[0]))
-    # print(centroids)
-    # print()
 
 
